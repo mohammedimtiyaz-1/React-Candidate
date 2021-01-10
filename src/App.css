@@ -1,38 +1,113 @@
-.App {
+.employee {
+  padding: 30px 0 40px;
+  margin-bottom: 30px;
+  background-color: #e3e1d9;
   text-align: center;
+  overflow: hidden;
+  position: relative;
+  border-radius: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.employee .picture {
+  display: inline-block;
+  height: 130px;
+  width: 130px;
+  margin-bottom: 50px;
+  z-index: 1;
+  position: relative;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.employee .picture::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #1369ce;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.employee .picture img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  transform: scale(1);
+  transition: all 0.9s ease 0s;
+}
+
+.employee .title {
+  display: block;
+  font-size: 15px;
+  color: #4e5052;
+  text-transform: capitalize;
+}
+
+.employee .social {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: #71aaeb;
+  position: absolute;
+  bottom: -100px;
+  left: 0;
+  transition: all 0.5s ease 0s;
+}
+
+.employee:hover .social {
+  bottom: 0;
+}
+
+.employee .social li a {
+  display: block;
+  padding: 10px;
+  font-size: 17px;
   color: white;
+  transition: all 0.3s ease 0s;
+  text-decoration: none;
 }
-
-.App-link {
-  color: #61dafb;
+.name {
+  margin-bottom: 20px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.employee .social li a:hover {
+  color: #417ec4;
+  background-color: #f7f5ec;
+}
+.Navbar {
+  display: flex;
+  justify-content: center;
+  background-color: black;
+}
+.navbaritems {
+  display: flex;
+  width: 40%;
+  list-style-type: none;
+  justify-content: space-around;
+  padding: 0.5em;
+}
+.items {
+  margin: 10px;
+  font-size: 20px;
+  color: #c8ced3;
+}
+.items:hover {
+  transform: scale(1.2);
+  margin: 10px;
+  color: #fff;
+  font-size: 20px;
+}
+.social {
+  display: flex;
+  justify-content: space-around;
+  text-decoration: none;
+}
+.search {
+  width: 70%;
+  display: flex;
+  justify-content: flex-end;
+}
+.profile {
+  width: 30%;
+  margin: 10% 30%;
 }

@@ -1,0 +1,48 @@
+import React, { useState, useEffect } from "react";
+import Employees from "./Employees";
+
+function Shortlist() {
+  const [employees, setEmployees] = useState();
+  const [search, setSearch] = useState("");
+
+  useEffect(() => {
+    if (!JSON.parse(window.localStorage.getItem("shortlist"))) {
+      setEmployees([]);
+    }
+    setEmployees(JSON.parse(localStorage.getItem("shortlist")));
+  }, []);
+
+  const changeHandler = (e) => {
+    setSearch(e.target.value);
+  };
+  const searchList = () => {
+    setEmployees([
+      ...employees.filter((e) => e.name.toLowerCase().includes(search)),
+    ]);
+  };
+
+  return (
+    <>
+      <h3 style={{ textAlign: "center", color: "Green" }}>
+        Shortlisted Candidates
+      </h3>
+      <div style={{ margin: "20px" }}>
+        <div className="search">
+          <input
+            type="Search"
+            className="search"
+            placeholder="candidate..."
+            onChange={(e) => changeHandler(e)}
+          ></input>
+          <button type="submit" onClick={() => searchList()}>
+            <i class="fa fa-search"></i>
+          </button>
+        </div>
+      </div>
+      <Employees list={employees} showProfile={false} />
+      <div></div>
+    </>
+  );
+}
+
+export default Shortlist;
